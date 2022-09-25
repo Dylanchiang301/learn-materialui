@@ -2,12 +2,13 @@ import React from 'react'
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router';
 import { Box} from '@mui/material';
-import { Videos, ChannelCard} from './';
+import { ChannelCard} from './'
+import { Videos } from './';
 import { fetchFromAPI } from '../utils/fetchFromAPI';
 
 const ChannelDetail = () => {
-  const [ChannelDetial, setChannelDetail] = useState(null)
-  const [Videos, setVideos] = useState([])
+  const [channelDetial, setChannelDetail] = useState(null)
+  const [videos, setVideos] = useState([])
 
   const { id } = useParams();
 
@@ -29,15 +30,13 @@ const ChannelDetail = () => {
           }}
         />
 
-      {/* <Box>
-        <div style={{
-          height:'300px',
-          background: 'linear-gradient(90deg, rgba(0,238,247,1) 0%, rgba(206,3,184,1) 100%, rgba(0,212,255,1) 100%)',
-          zIndex: 10,
-        }} /> */}
-        <ChannelCard ChannelDetail={ChannelDetail}/>
-      </Box>
 
+        <ChannelCard channelDetail={ChannelDetail} marginTop='-100px'/>
+      </Box>
+      <Box display='flex' p='2'>
+        <Box sx={{ mr:{ sm:'100px' }}}/>
+          <Videos videos={videos}></Videos>
+      </Box>
     </Box>
   )
 }
