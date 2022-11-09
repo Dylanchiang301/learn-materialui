@@ -1,21 +1,19 @@
-import {autocompleteClasses, SliderTrack, Stack} from '@mui/material';
+import { Stack } from '@mui/material';
 import React from 'react';
 
 import { categories } from '../utils/constants';
 
-const selectedCategory = 'New';
-
-const SideBar = ( {selectedCategory, setSelectedCategory}) => (
+const SideBar = ({ selectedCategory, setSelectedCategory }) => (
     <Stack 
-    derction="row" 
+    direction="row" 
     sx={{
         overflowY: 'auto',
         height: {sx:"auto", md:'95%'},
-        flexDirection:{ md:'column'}
+        flexDirection:{ md:'column'},
     }}
     >
         {categories.map((category)=> (
-            <botton 
+            <button 
             className='category-btn'
             onClick={() => setSelectedCategory(category.name)}
             style={{
@@ -35,7 +33,7 @@ const SideBar = ( {selectedCategory, setSelectedCategory}) => (
                     opacity: category.name === selectedCategory ? '1':'0.7'
                 }}
                 >{category.name}</span>
-            </botton>
+            </button>
         ))}
     </Stack>
 )

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import {Paper, IconButton } from '@mui/material';
 import {Search} from '@mui/icons-material';
 
@@ -9,7 +9,7 @@ const SearchBar = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) =>{
-    e.preventDefult();
+    e.preventDefault();
 
     if(searchTerm){
         navigate(`/search/${searchTerm}`);
@@ -37,7 +37,7 @@ const SearchBar = () => {
         value={searchTerm}
         onChange={(e)=> setSearchTerm(e.target.value)}
     />
-    <IconButton type='submit' sx={{p:'10px', color:'red'}}>
+    <IconButton type='submit' sx={{p:'10px', color:'red'}} aria-label='search'>
         <Search />
     </IconButton>
 

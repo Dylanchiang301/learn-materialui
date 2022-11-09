@@ -7,6 +7,7 @@ const App = () => (
         <Box sx={{ backgroundColor: "#000" }}>
             <Navbar />
             <Routes>
+                {/* <Routes>跟 <Route> element={<路徑/>}這個是react-router-dom v6後寫法 */}
                 <Route exact path="/" element = {<Feed/>} />
                 <Route path='/video/:id' element={<VideoDetail/>} />
                 <Route path='/channel/:id' element={<ChannelDetail/>} />

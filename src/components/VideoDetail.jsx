@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect} from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Typography, Box, Stack } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
@@ -13,7 +13,7 @@ const VideoDetail = () => {
   const {id} = useParams();
 
   useEffect(() => {
-    fetchFromAPI(`videos?.part=snippet,statistics&id=$(id)`)
+    fetchFromAPI(`videos?.part=snippet,statistics&id=${id}`)
       .then((data) => setVideoDetail(data.items[0]));
 
     fetchFromAPI(`search?paart=snippet&relatedToVideoId=${id}&type=video`)
@@ -29,8 +29,8 @@ const VideoDetail = () => {
       <Stack direction={{xs:'colum', md:'row'}}>
         <Box flex={1}>
           <Box sx={{width:'100%', poisition:'sticky', top:'86px'}}>
-            <ReactPlayer url={'http://www.youtube.com/watch?v=${id}'}
-            classNmae='react-player' controls/>
+            <ReactPlayer url={`http://www.youtube.com/watch?v=${id}`}
+            className='react-player' controls/>
             <Typography color='#fff' variant='h5' fontWeight='bold' p={2}>
               {title}
             </Typography>
@@ -60,9 +60,6 @@ const VideoDetail = () => {
         </Box>
 
       </Stack>
-
-
-
     </Box>
   )
 }
